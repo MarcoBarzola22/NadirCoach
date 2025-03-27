@@ -1,9 +1,10 @@
 :root{
-    --fondoPrincipal: #1E1E1E;
-    --colorPrincipal: #2A73D9;
+    --fondoPrincipal: #0e0b0b;
+    --colorPrincipal: #00BFFF;
     --colorSecundario: #F2A2C3;
     --textoPrincipal: #D9D9D9;
     --hoverPrincipal:#E57399;
+    --azulElectrico: #2A73D9;
     --Bordes: #666666;
     --textoPrincipal: 
     font-family: "Oswald", sans-serif;
@@ -28,5 +29,147 @@
     text-decoration: none;
     text-transform: capitalize;
     list-style: none;
+    color: #F5F5F5;
 }
 
+html{
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*HEADER*/
+
+header{
+    background-color: var(--fondoPrincipal);
+    height:3.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+header .logo span{
+    font-family: 400;
+    color: var(--textoPrincipal);
+    
+}
+
+header .logo {
+    font-size: 1.2em;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 0; /* Espacio entre el logo y el texto */
+}
+
+header .logo img {
+    height: 50px; /* Ajusta según la navbar */
+    width: auto; /* Para mantener la proporción */
+}
+
+header nav{
+    position: absolute;
+    top: 3.5em;
+    right: 1em;
+    background-color: var(--fondoPrincipal);
+    border-radius: 5px;
+    width: 75%;
+    max-width: 400px;
+    display: none;
+}
+
+header nav a{
+    display: block;
+    color: var(--textoPrincipal);
+    letter-spacing: .08em;
+    padding: 0.95em 0;
+    text-align: center;
+    border-bottom: 1px solid var(--textoPrincipal);
+}
+
+header nav a:hover{
+    background-color: var(--azulElectrico);
+    color: var(--fondoPrincipal);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#menu-icon{
+    padding: 10px;
+    font-size: 1.25em;
+    cursor: pointer;
+    color: var(--textoPrincipal);
+}
+
+.active{
+    display: block;
+}
+
+.menu-active{
+    background-color: var(--azulElectrico);
+    border-radius: .1em;
+}
+
+@media only screen and (min-width: 720px) {
+    /* Esto aplica los estilos solo en pantallas con un ancho mínimo de 720px */
+
+    header nav {
+        display: flex; /* Utiliza el modelo de diseño flexible (flexbox) para los elementos hijos */
+        align-items: center; /* Alinea los elementos de la navbar verticalmente al centro */
+        justify-content: center; /* Centra los elementos horizontalmente en el contenedor */
+        background-color: transparent; /* El fondo de la navbar será transparente */
+        position: unset; /* Establece que la propiedad de posición no será modificada (no habrá posición fija ni absoluta) */
+        max-width: none; /* No hay límite de ancho máximo */
+        width: 100%; /* La navbar ocupará todo el ancho disponible */
+    }
+
+    header nav a {
+        padding: 0; /* Elimina el espaciado interno dentro de los enlaces */
+        margin-left: .8em; /* Da un pequeño margen izquierdo entre los enlaces */
+        color: var(--textoPrincipal); /* El color de texto por defecto será el valor de la variable --textoPrincipal */
+        font-weight: 700; /* Establece el grosor de la fuente en negrita */
+        font-size: medium; /* Establece el tamaño de la fuente a un valor "medio" */
+        position: relative; /* Necesario para posicionar el pseudo-elemento ::after correctamente */
+        transition: color 0.1s ease; /* Aplica una transición suave en el cambio de color del texto con una duración de 0.1 segundos */
+        background-color: transparent !important; /* Asegura que el fondo siempre sea transparente */
+    }
+
+    header nav a::after {
+        content: ""; /* Crea un pseudo-elemento vacío */
+        position: absolute; /* Posiciona el pseudo-elemento de manera absoluta respecto al enlace */
+        left: 0; /* Coloca el pseudo-elemento al principio del enlace */
+        bottom: -2px; /* Ajusta la posición vertical para que quede ligeramente debajo del texto */
+        width: 100%; /* El ancho del pseudo-elemento será igual al del enlace */
+        height: 2px; /* El pseudo-elemento tendrá una altura de 2px, lo que lo convierte en un subrayado */
+        background-color: var(--azulElectrico); /* El color del subrayado será el valor de la variable --azulElectrico */
+        transform: scaleX(0); /* Inicialmente, el subrayado estará oculto (escala 0 en el eje X) */
+    }
+
+    header nav a:hover::after {
+        transform: scaleX(1); /* Al pasar el cursor sobre el enlace, el subrayado se expandirá en el eje X, mostrando el subrayado */
+    }
+
+    header nav a:hover {
+        color: var(--azulElectrico); /* Cuando se pasa el cursor sobre el enlace, el texto cambiará a azul eléctrico */
+    }
+
+    #navbar {
+        display: flex; /* Utiliza flexbox para organizar los enlaces dentro de la barra de navegación */
+        gap: 1.5em; /* Añade un espacio de 1.5em entre cada enlace */
+    }
+
+    #navbar a {
+        padding: 0 10px; /* Añade un espaciado interno a los enlaces dentro de #navbar */
+    }
+
+    #menu-icon {
+        display: none; /* Oculta el ícono del menú (generalmente utilizado en vistas móviles) */
+    }
+}
+
+/* INICIO */

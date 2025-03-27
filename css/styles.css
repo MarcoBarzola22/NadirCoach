@@ -1,0 +1,32 @@
+:root{
+    --fondoPrincipal: #1E1E1E;
+    --colorPrincipal: #2A73D9;
+    --colorSecundario: #F2A2C3;
+    --textoPrincipal: #D9D9D9;
+    --hoverPrincipal:#E57399;
+    --Bordes: #666666;
+    --textoPrincipal: 
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    --textoSecundario: 
+    .open-sans-<uniquifier> {
+      font-family: "Open Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
+    }
+}
+
+*{
+    font-family: var(--textoPrincipal);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    list-style: none;
+}
+

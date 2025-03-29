@@ -11,3 +11,27 @@ menu.addEventListener('click', () =>{
     
 });
 
+window.addEventListener('resize', () =>{
+    const screenWidth = window.innerWidth;
+    const breakpoint = 720;
+
+    if(screenWidth > breakpoint) {
+        navbar.classList.remove('active');
+        menu.classList.remove('menu-active');
+    }
+})
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 60, 
+                behavior: 'smooth'
+            });
+        }
+    });
+});
